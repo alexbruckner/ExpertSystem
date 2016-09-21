@@ -1,0 +1,23 @@
+{
+    "expertSystemApp": {
+        "conclusion" : {
+            "home": {
+                "title": "Conclusions",
+                "createLabel": "Crear nuevo Conclusion",
+                "createOrEditLabel": "Crear o editar Conclusion",
+                "search": "Search for Conclusion"
+            },
+            "created": "Un nuevo Conclusion ha sido creado con el identificador {{ param }}",
+            "updated": "Un Conclusion ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Conclusion ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Conclusion {{ id }}?"
+            },
+            "detail": {
+                "title": "Conclusion"
+            },
+            "text": "Text",
+            "question": "Question"
+        }
+    }
+}

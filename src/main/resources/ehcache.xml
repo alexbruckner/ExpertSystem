@@ -37,5 +37,21 @@
            timeToLiveSeconds="3600">
     </cache>
     
+    <cache name="com.bru.jhipster.expertsystem.domain.Question"
+           timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="com.bru.jhipster.expertsystem.domain.Question.answers"
+           timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="com.bru.jhipster.expertsystem.domain.Answer"
+           timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="com.bru.jhipster.expertsystem.domain.Conclusion"
+           timeToLiveSeconds="3600">
+    </cache>
+
     <!-- jhipster-needle-ehcache-add-entry -->
 </ehcache>

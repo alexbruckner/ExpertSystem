@@ -1,0 +1,24 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "question",
+            "otherEntityName": "question",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "text",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "conclusion"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "text",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160921142713",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "conclusion",
+    "pagination": "pagination"
+}

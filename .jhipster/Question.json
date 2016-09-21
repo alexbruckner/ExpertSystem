@@ -1,0 +1,25 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "answer",
+            "otherEntityName": "answer",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "question"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "text",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20160921142418",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "question",
+    "pagination": "pagination"
+}
