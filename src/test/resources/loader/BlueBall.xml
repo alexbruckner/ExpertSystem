@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<expert_system xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:noNamespaceSchemaLocation="expert_system.xsd">
+    <question>
+        <text>
+            What color is the ball?
+        </text>
+        <answer>
+            <text>
+                Blue.
+            </text>
+            <conclusion>
+                <text>
+                    Blue ball!
+                </text>
+            </conclusion>
+        </answer>
+        <answer>
+            <text>
+                Red.
+            </text>
+            <conclusion>
+                <question>
+                    <text>
+                        Really?
+                    </text>
+                    <answer>
+                        <text>
+                            Yes.
+                        </text>
+                        <conclusion>
+                            <text>
+                                Red ball!
+                            </text>
+                        </conclusion>
+                    </answer>
+                    <answer>
+                        <text>
+                            No.
+                        </text>
+                        <conclusion>
+                            <text>
+                                Idiot.
+                            </text>
+                        </conclusion>
+                    </answer>
+                </question>
+            </conclusion>
+        </answer>
+    </question>
+</expert_system>
