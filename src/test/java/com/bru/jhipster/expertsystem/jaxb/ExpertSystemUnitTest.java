@@ -12,7 +12,7 @@ import java.util.List;
 
 public class ExpertSystemUnitTest {
     @Test
-    public void marshal() throws JAXBException {
+    public void unmarshal() throws JAXBException {
         JAXBContext jaxbContext = JAXBContext.newInstance(ExpertSystem.class);
         Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
         ExpertSystem expertSystem = (ExpertSystem) jaxbUnmarshaller.unmarshal(new File("src/test/resources/loader/BlueBall.xml"));
