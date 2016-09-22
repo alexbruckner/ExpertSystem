@@ -1,7 +1,5 @@
 package com.bru.jhipster.expertsystem.jaxb;
 
-import org.hamcrest.core.Is;
-import org.junit.Assert;
 import org.junit.Test;
 
 import javax.xml.bind.JAXBContext;
@@ -10,8 +8,8 @@ import javax.xml.bind.Unmarshaller;
 import java.io.File;
 import java.util.List;
 
-import static org.hamcrest.core.Is.*;
-import static org.junit.Assert.*;
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
 
 public class ExpertSystemUnitTest {
     @Test
