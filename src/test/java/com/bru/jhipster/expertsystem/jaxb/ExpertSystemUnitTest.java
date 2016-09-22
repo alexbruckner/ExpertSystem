@@ -10,6 +10,9 @@ import javax.xml.bind.Unmarshaller;
 import java.io.File;
 import java.util.List;
 
+import static org.hamcrest.core.Is.*;
+import static org.junit.Assert.*;
+
 public class ExpertSystemUnitTest {
     @Test
     public void unmarshal() throws JAXBException {
@@ -18,13 +21,13 @@ public class ExpertSystemUnitTest {
         ExpertSystem expertSystem = (ExpertSystem) jaxbUnmarshaller.unmarshal(new File("src/test/resources/loader/BlueBall.xml"));
 
         Question q1 = expertSystem.getQuestion();
-        Assert.assertThat(q1.getText().trim(), Is.is("What color is the ball?"));
+        assertThat(q1.getText().trim(), is("What color is the ball?"));
 
         List<Answer> q1Answers = q1.getAnswer();
-        Assert.assertThat(q1Answers.get(0).getText().trim(), Is.is("Blue."));
-        Assert.assertThat(q1Answers.get(1).getText().trim(), Is.is("Red."));
+        assertThat(q1Answers.get(0).getText().trim(), is("Blue."));
+        assertThat(q1Answers.get(1).getText().trim(), is("Red."));
 
         Conclusion q1Answer1Conclusion = q1Answers.get(0).getConclusion();
-        Assert.assertThat(q1Answer1Conclusion.getText().trim(), Is.is("Blue ball!"));
+        assertThat(q1Answer1Conclusion.getText().trim(), is("Blue ball!"));
     }
 }
