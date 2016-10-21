@@ -27,5 +27,7 @@ public class ExpertSystemUnitTest {
 
         Conclusion q1Answer1Conclusion = q1Answers.get(0).getConclusion();
         assertThat(q1Answer1Conclusion.getText().trim(), is("Blue ball!"));
+
+        assertThat(q1Answers.get(1).getConclusion().getQuestion().getText().trim(), is("Really?"));
     }
 }
