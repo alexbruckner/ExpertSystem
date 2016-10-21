@@ -1,0 +1,34 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "question",
+            "otherEntityName": "question",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "text",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "expertSystem"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "xml",
+            "fieldType": "clob",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20161021145309",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "expert_system",
+    "pagination": "pagination"
+}

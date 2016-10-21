@@ -10,6 +10,7 @@
                 "question": "Question",
                 "answer": "Answer",
                 "conclusion": "Conclusion",
+                "expertSystem": "Expert System",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

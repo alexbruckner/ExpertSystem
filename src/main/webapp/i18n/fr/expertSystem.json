@@ -1,0 +1,24 @@
+{
+    "expertSystemApp": {
+        "expertSystem" : {
+            "home": {
+                "title": "ExpertSystems",
+                "createLabel": "Créer un nouveau Expert System",
+                "createOrEditLabel": "Créer ou éditer un Expert System",
+                "search": "Recherche pour Expert System"
+            },
+            "created": "Un nouveau Expert System a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Expert System avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Expert System avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Expert System {{ id }} ?"
+            },
+            "detail": {
+                "title": "Expert System"
+            },
+            "title": "Title",
+            "xml": "Xml",
+            "question": "Question"
+        }
+    }
+}
