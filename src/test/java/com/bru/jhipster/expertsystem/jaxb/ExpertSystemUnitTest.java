@@ -18,6 +18,9 @@ public class ExpertSystemUnitTest {
         Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
         ExpertSystem expertSystem = (ExpertSystem) jaxbUnmarshaller.unmarshal(new File("src/test/resources/loader/BlueBall.xml"));
 
+        String title = expertSystem.getTitle();
+        assertThat(title.trim(), is("Blue Ball System"));
+
         Question q1 = expertSystem.getQuestion();
         assertThat(q1.getText().trim(), is("What color is the ball?"));
 

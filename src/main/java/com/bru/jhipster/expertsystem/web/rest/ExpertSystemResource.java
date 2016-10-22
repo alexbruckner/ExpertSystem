@@ -1,13 +1,19 @@
 package com.bru.jhipster.expertsystem.web.rest;
 
+import com.bru.jhipster.expertsystem.jaxb.Answer;
+import com.bru.jhipster.expertsystem.jaxb.Conclusion;
+import com.bru.jhipster.expertsystem.jaxb.Question;
 import com.codahale.metrics.annotation.Timed;
 import com.bru.jhipster.expertsystem.domain.ExpertSystem;
 
 import com.bru.jhipster.expertsystem.repository.ExpertSystemRepository;
 import com.bru.jhipster.expertsystem.web.rest.util.HeaderUtil;
 import com.bru.jhipster.expertsystem.web.rest.util.PaginationUtil;
+import org.codehaus.groovy.control.io.StringReaderSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
@@ -17,10 +23,23 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.xml.sax.SAXException;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
+import javax.xml.XMLConstants;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
+import javax.xml.transform.Source;
+import javax.xml.transform.stream.StreamSource;
+import javax.xml.validation.Schema;
+import javax.xml.validation.SchemaFactory;
+import javax.xml.validation.Validator;
+import java.io.File;
 import java.io.IOException;
+import java.io.StringReader;
+import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -152,21 +171,17 @@ public class ExpertSystemResource {
     @Timed
     public ResponseEntity<ExpertSystem> handleFileUpload(String xml) throws URISyntaxException {
         log.debug("REST request to upload ExpertSystem xml: {}", xml);
-        if (!validates(xml)) {
+        ExpertSystem result = null;
+        try {
+            result = expertSystemRepository.save(xml);
+        } catch (JAXBException e) {
+            e.printStackTrace();
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("expertSystem", "invalid", "New expertSystem is not well formed or does not comply with the xml schema.")).body(null);
         }
-        ExpertSystem expertSystem = parseExpertSystemXmlAndCreateContents(xml);
-        ExpertSystem result = expertSystemRepository.save(expertSystem);
         return ResponseEntity.created(new URI("/api/expert-systems/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("expertSystem", result.getId().toString()))
             .body(result);
     }
 
-    private ExpertSystem parseExpertSystemXmlAndCreateContents(String xml) {
-        return new ExpertSystem().title("woohoo!!!").xml(xml); //TODO
-    }
 
-    private boolean validates(String xml) {
-        return xml != null && xml.length() > 0; //TODO
-    }
 }
