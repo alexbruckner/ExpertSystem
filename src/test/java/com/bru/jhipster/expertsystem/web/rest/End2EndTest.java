@@ -1,15 +1,11 @@
 package com.bru.jhipster.expertsystem.web.rest;
 
 import com.bru.jhipster.expertsystem.ExpertSystemApp;
-import com.bru.jhipster.expertsystem.domain.ExpertSystem;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.common.base.Charsets;
-import com.google.common.io.Resources;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -17,7 +13,6 @@ import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -33,7 +28,7 @@ public class End2EndTest {
 
     @BeforeClass
     public static void setUp() throws IOException, InterruptedException {
-        //ExpertSystemApp.main(new String[]{});
+        ExpertSystemApp.main(new String[]{});
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 
@@ -55,6 +50,7 @@ public class End2EndTest {
 
     @Test
     public void fuckYou() {
+        System.out.println("Oooooh looooooong Joooooohnson!!!!!");
         // it didn't work dude. Got and fuck yourself. So we're just testing the auth bit. Fuck you. Again.
     }
 }
