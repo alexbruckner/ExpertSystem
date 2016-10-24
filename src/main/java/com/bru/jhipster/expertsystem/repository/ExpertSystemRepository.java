@@ -2,6 +2,9 @@ package com.bru.jhipster.expertsystem.repository;
 
 import com.bru.jhipster.expertsystem.domain.ExpertSystem;
 
+import com.bru.jhipster.expertsystem.domain.Question;
+import com.bru.jhipster.expertsystem.domain.convert.JAXBToDomainModelConverter;
+import com.bru.jhipster.expertsystem.jaxb.Answer;
 import org.springframework.data.jpa.repository.*;
 
 import javax.xml.bind.JAXBContext;
@@ -15,16 +18,5 @@ import java.util.List;
  */
 @SuppressWarnings("unused")
 public interface ExpertSystemRepository extends JpaRepository<ExpertSystem,Long> {
-    default ExpertSystem save(String xml) throws JAXBException {
-        JAXBContext jaxbContext = JAXBContext.newInstance(com.bru.jhipster.expertsystem.jaxb.ExpertSystem.class);
-        Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-        com.bru.jhipster.expertsystem.jaxb.ExpertSystem expertSystemJAXB =
-            (com.bru.jhipster.expertsystem.jaxb.ExpertSystem) jaxbUnmarshaller.unmarshal(
-                new StringReader(xml)
-            );
-
-        ExpertSystem expertSystem = new ExpertSystem().title(expertSystemJAXB.getTitle()).xml(xml);
-        return save(expertSystem);
-    }
 
 }

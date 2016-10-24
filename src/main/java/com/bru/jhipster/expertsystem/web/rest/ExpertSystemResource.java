@@ -1,5 +1,6 @@
 package com.bru.jhipster.expertsystem.web.rest;
 
+import com.bru.jhipster.expertsystem.domain.convert.JAXBToDomainModelConverter;
 import com.bru.jhipster.expertsystem.jaxb.Answer;
 import com.bru.jhipster.expertsystem.jaxb.Conclusion;
 import com.bru.jhipster.expertsystem.jaxb.Question;
@@ -56,6 +57,9 @@ public class ExpertSystemResource {
 
     @Inject
     private ExpertSystemRepository expertSystemRepository;
+
+    @Inject
+    private JAXBToDomainModelConverter jaxbToDomainModelConverter;
 
     /**
      * POST  /expert-systems : Create a new expertSystem.
@@ -173,7 +177,7 @@ public class ExpertSystemResource {
         log.debug("REST request to upload ExpertSystem xml: {}", xml);
         ExpertSystem result = null;
         try {
-            result = expertSystemRepository.save(xml);
+            result = jaxbToDomainModelConverter.convertAndSave(xml);
         } catch (JAXBException e) {
             e.printStackTrace();
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("expertSystem", "invalid", "New expertSystem is not well formed or does not comply with the xml schema.")).body(null);
@@ -182,6 +186,4 @@ public class ExpertSystemResource {
             .headers(HeaderUtil.createEntityCreationAlert("expertSystem", result.getId().toString()))
             .body(result);
     }
-
-
 }
