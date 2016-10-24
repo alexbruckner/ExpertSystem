@@ -171,7 +171,6 @@ public class ExpertSystemResource {
      */
     @RequestMapping(value = "/expert-systems/upload",
         method = RequestMethod.POST,
-        consumes = MediaType.APPLICATION_XML_VALUE,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
     public ResponseEntity<ExpertSystem> handleFileUpload(String xml) throws URISyntaxException {
