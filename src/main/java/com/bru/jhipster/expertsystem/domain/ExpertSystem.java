@@ -28,6 +28,7 @@ public class ExpertSystem implements Serializable {
 
     @NotNull
     @Column(name = "xml", nullable = false)
+    @Lob
     private String xml;
 
     @OneToOne
