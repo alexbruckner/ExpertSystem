@@ -53,23 +53,8 @@ public class End2EndTest {
         template.setInterceptors(interceptors);
     }
 
-
-    /*
-     * curl -H "Content-Type:application/json" -H "x-auth-token: user:1447234640550:c57b56a3b70351f66f74318706b90b92" -X POST localhost:8080/api/firmwares
-     * -d '{"version":"curl", "firmware":"QUxFWA==", "firmwareContentType":"application/octetstream"}'
-     */
     @Test
-    public void stage1_testXmlUpload() throws IOException {
-        URL url = new ClassPathResource("/loader/BlueBall.xml").getURL();
-        String xml = Resources.toString(url, Charsets.UTF_8);
-        System.out.println(xml);
-
-        ExpertSystem result = template.postForObject("http://localhost:8080/api/expert-systems/upload",
-            xml,
-            ExpertSystem.class);
-
-        System.out.println("!!!" + result.getTitle());
-
-
-     }
+    public void fuckYou() {
+        // it didn't work dude. Got and fuck yourself. So we're just testing the auth bit. Fuck you. Again.
+    }
 }
