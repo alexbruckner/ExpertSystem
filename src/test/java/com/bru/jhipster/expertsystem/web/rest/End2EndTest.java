@@ -44,8 +44,6 @@ public class End2EndTest {
             template.postForEntity("http://localhost:8080/api/authenticate", entity, String.class)
                 .getBody();
 
-        System.out.println("String result: " + result);
-
         String token = (String) mapper.readValue(result, Map.class).get("id_token");
         List<ClientHttpRequestInterceptor> interceptors = new ArrayList<>();
         interceptors.add((httpRequest, bytes, clientHttpRequestExecution) -> {
@@ -64,15 +62,11 @@ public class End2EndTest {
     public void stage1_testXmlUpload() throws IOException {
         URL url = new ClassPathResource("/loader/BlueBall.xml").getURL();
         String xml = Resources.toString(url, Charsets.UTF_8);
-        assert(xml != null && xml.length() > 0);
         System.out.println(xml);
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_XML);
-
-        ExpertSystem result = template.postForEntity("http://localhost:8080/api/expert-systems/upload",
-            new HttpEntity<>(xml, headers),
-            ExpertSystem.class).getBody();
+        ExpertSystem result = template.postForObject("http://localhost:8080/api/expert-systems/upload",
+            xml,
+            ExpertSystem.class);
 
         System.out.println("!!!" + result.getTitle());
 
