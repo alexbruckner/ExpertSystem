@@ -332,3 +332,8 @@ ui bootstrap tweaks
 
 
 /* jhipster-needle-css-add-main JHipster will add new css style */
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    background-color: lightgreen;
+    cursor: pointer;
+}
