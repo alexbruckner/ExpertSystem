@@ -1,14 +1,13 @@
 package com.bru.jhipster.expertsystem.domain.convert;
 
+import com.bru.jhipster.expertsystem.domain.Answer;
 import com.bru.jhipster.expertsystem.domain.Conclusion;
 import com.bru.jhipster.expertsystem.domain.ExpertSystem;
 import com.bru.jhipster.expertsystem.domain.Question;
-import com.bru.jhipster.expertsystem.domain.Answer;
 import com.bru.jhipster.expertsystem.repository.AnswerRepository;
 import com.bru.jhipster.expertsystem.repository.ConclusionRepository;
 import com.bru.jhipster.expertsystem.repository.ExpertSystemRepository;
 import com.bru.jhipster.expertsystem.repository.QuestionRepository;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
@@ -52,7 +51,7 @@ public class JAXBToDomainModelConverter {
         return expertSystemRepository.save(expertSystem);
     }
 
-    private Question convert(com.bru.jhipster.expertsystem.jaxb.Question questionJAXB){
+    private Question convert(com.bru.jhipster.expertsystem.jaxb.Question questionJAXB) {
         if (questionJAXB == null) return null;
         Set<Answer> answers = new HashSet<>();
         Question question = new Question().text(questionJAXB.getText());

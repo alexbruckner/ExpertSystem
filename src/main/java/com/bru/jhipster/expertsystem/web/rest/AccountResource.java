@@ -1,17 +1,15 @@
 package com.bru.jhipster.expertsystem.web.rest;
 
-import com.codahale.metrics.annotation.Timed;
-
 import com.bru.jhipster.expertsystem.domain.User;
 import com.bru.jhipster.expertsystem.repository.UserRepository;
 import com.bru.jhipster.expertsystem.security.SecurityUtils;
 import com.bru.jhipster.expertsystem.service.MailService;
 import com.bru.jhipster.expertsystem.service.UserService;
 import com.bru.jhipster.expertsystem.service.dto.UserDTO;
+import com.bru.jhipster.expertsystem.web.rest.util.HeaderUtil;
 import com.bru.jhipster.expertsystem.web.rest.vm.KeyAndPasswordVM;
 import com.bru.jhipster.expertsystem.web.rest.vm.ManagedUserVM;
-import com.bru.jhipster.expertsystem.web.rest.util.HeaderUtil;
-
+import com.codahale.metrics.annotation.Timed;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,9 +22,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.util.*;
+import java.util.Optional;
 
 /**
  * REST controller for managing the current user's account.
@@ -50,12 +46,12 @@ public class AccountResource {
      * POST  /register : register the user.
      *
      * @param managedUserVM the managed user View Model
-     * @param request the HTTP request
+     * @param request       the HTTP request
      * @return the ResponseEntity with status 201 (Created) if the user is registered or 400 (Bad Request) if the login or e-mail is already in use
      */
     @RequestMapping(value = "/register",
-                    method = RequestMethod.POST,
-                    produces={MediaType.APPLICATION_JSON_VALUE, MediaType.TEXT_PLAIN_VALUE})
+        method = RequestMethod.POST,
+        produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.TEXT_PLAIN_VALUE})
     @Timed
     public ResponseEntity<?> registerAccount(@Valid @RequestBody ManagedUserVM managedUserVM, HttpServletRequest request) {
 
@@ -68,19 +64,19 @@ public class AccountResource {
                 .map(user -> new ResponseEntity<>("e-mail address already in use", textPlainHeaders, HttpStatus.BAD_REQUEST))
                 .orElseGet(() -> {
                     User user = userService.createUser(managedUserVM.getLogin(), managedUserVM.getPassword(),
-                    managedUserVM.getFirstName(), managedUserVM.getLastName(), managedUserVM.getEmail().toLowerCase(),
-                    managedUserVM.getLangKey());
+                        managedUserVM.getFirstName(), managedUserVM.getLastName(), managedUserVM.getEmail().toLowerCase(),
+                        managedUserVM.getLangKey());
                     String baseUrl = request.getScheme() + // "http"
-                    "://" +                                // "://"
-                    request.getServerName() +              // "myhost"
-                    ":" +                                  // ":"
-                    request.getServerPort() +              // "80"
-                    request.getContextPath();              // "/myContextPath" or "" if deployed in root context
+                        "://" +                                // "://"
+                        request.getServerName() +              // "myhost"
+                        ":" +                                  // ":"
+                        request.getServerPort() +              // "80"
+                        request.getContextPath();              // "/myContextPath" or "" if deployed in root context
 
                     mailService.sendActivationEmail(user, baseUrl);
                     return new ResponseEntity<>(HttpStatus.CREATED);
                 })
-        );
+            );
     }
 
     /**
@@ -175,7 +171,7 @@ public class AccountResource {
     /**
      * POST   /account/reset_password/init : Send an e-mail to reset the password of the user
      *
-     * @param mail the mail of the user
+     * @param mail    the mail of the user
      * @param request the HTTP request
      * @return the ResponseEntity with status 200 (OK) if the e-mail was sent, or status 400 (Bad Request) if the e-mail address is not registered
      */
@@ -213,8 +209,8 @@ public class AccountResource {
             return new ResponseEntity<>("Incorrect password", HttpStatus.BAD_REQUEST);
         }
         return userService.completePasswordReset(keyAndPassword.getNewPassword(), keyAndPassword.getKey())
-              .map(user -> new ResponseEntity<String>(HttpStatus.OK))
-              .orElse(new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
+            .map(user -> new ResponseEntity<String>(HttpStatus.OK))
+            .orElse(new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
     }
 
     private boolean checkPasswordLength(String password) {

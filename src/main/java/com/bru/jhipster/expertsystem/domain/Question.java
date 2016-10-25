@@ -5,11 +5,11 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * A Question.
@@ -89,7 +89,7 @@ public class Question implements Serializable {
             return false;
         }
         Question question = (Question) o;
-        if(question.id == null || id == null) {
+        if (question.id == null || id == null) {
             return false;
         }
         return Objects.equals(id, question.id);

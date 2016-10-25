@@ -1,11 +1,10 @@
 package com.bru.jhipster.expertsystem.web.rest;
 
-import com.codahale.metrics.annotation.Timed;
 import com.bru.jhipster.expertsystem.domain.Answer;
-
 import com.bru.jhipster.expertsystem.repository.AnswerRepository;
 import com.bru.jhipster.expertsystem.web.rest.util.HeaderUtil;
 import com.bru.jhipster.expertsystem.web.rest.util.PaginationUtil;
+import com.codahale.metrics.annotation.Timed;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -31,7 +30,7 @@ import java.util.Optional;
 public class AnswerResource {
 
     private final Logger log = LoggerFactory.getLogger(AnswerResource.class);
-        
+
     @Inject
     private AnswerRepository answerRepository;
 

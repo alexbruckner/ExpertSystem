@@ -2,7 +2,6 @@ package com.bru.jhipster.expertsystem.service;
 
 import com.bru.jhipster.expertsystem.config.JHipsterProperties;
 import com.bru.jhipster.expertsystem.domain.User;
-
 import org.apache.commons.lang3.CharEncoding;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,7 +12,6 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.context.Context;
 import org.thymeleaf.spring4.SpringTemplateEngine;
-
 
 import javax.inject.Inject;
 import javax.mail.internet.MimeMessage;

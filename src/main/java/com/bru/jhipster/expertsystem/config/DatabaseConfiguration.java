@@ -1,7 +1,6 @@
 package com.bru.jhipster.expertsystem.config;
 
 import com.bru.jhipster.expertsystem.config.liquibase.AsyncSpringLiquibase;
-
 import com.fasterxml.jackson.datatype.hibernate4.Hibernate4Module;
 import liquibase.integration.spring.SpringLiquibase;
 import org.h2.tools.Server;
@@ -40,7 +39,7 @@ public class DatabaseConfiguration {
     @Bean(initMethod = "start", destroyMethod = "stop")
     @Profile(Constants.SPRING_PROFILE_DEVELOPMENT)
     public Server h2TCPServer() throws SQLException {
-        return Server.createTcpServer("-tcp","-tcpAllowOthers");
+        return Server.createTcpServer("-tcp", "-tcpAllowOthers");
     }
 
     @Bean

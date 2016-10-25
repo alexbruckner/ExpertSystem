@@ -2,7 +2,6 @@ package com.bru.jhipster.expertsystem.repository;
 
 import com.bru.jhipster.expertsystem.config.audit.AuditEventConverter;
 import com.bru.jhipster.expertsystem.domain.PersistentAuditEvent;
-
 import org.springframework.boot.actuate.audit.AuditEvent;
 import org.springframework.boot.actuate.audit.AuditEventRepository;
 import org.springframework.stereotype.Repository;

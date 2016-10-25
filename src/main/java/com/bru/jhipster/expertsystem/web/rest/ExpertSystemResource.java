@@ -1,20 +1,13 @@
 package com.bru.jhipster.expertsystem.web.rest;
 
-import com.bru.jhipster.expertsystem.domain.convert.JAXBToDomainModelConverter;
-import com.bru.jhipster.expertsystem.jaxb.Answer;
-import com.bru.jhipster.expertsystem.jaxb.Conclusion;
-import com.bru.jhipster.expertsystem.jaxb.Question;
-import com.codahale.metrics.annotation.Timed;
 import com.bru.jhipster.expertsystem.domain.ExpertSystem;
-
+import com.bru.jhipster.expertsystem.domain.convert.JAXBToDomainModelConverter;
 import com.bru.jhipster.expertsystem.repository.ExpertSystemRepository;
 import com.bru.jhipster.expertsystem.web.rest.util.HeaderUtil;
 import com.bru.jhipster.expertsystem.web.rest.util.PaginationUtil;
-import org.codehaus.groovy.control.io.StringReaderSource;
+import com.codahale.metrics.annotation.Timed;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.UrlResource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
@@ -22,25 +15,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.xml.sax.SAXException;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
-import javax.xml.XMLConstants;
-import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
-import javax.xml.transform.Source;
-import javax.xml.transform.stream.StreamSource;
-import javax.xml.validation.Schema;
-import javax.xml.validation.SchemaFactory;
-import javax.xml.validation.Validator;
-import java.io.File;
-import java.io.IOException;
-import java.io.StringReader;
-import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;

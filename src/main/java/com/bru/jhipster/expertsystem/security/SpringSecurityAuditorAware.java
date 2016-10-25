@@ -1,7 +1,6 @@
 package com.bru.jhipster.expertsystem.security;
 
 import com.bru.jhipster.expertsystem.config.Constants;
-
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.stereotype.Component;
 

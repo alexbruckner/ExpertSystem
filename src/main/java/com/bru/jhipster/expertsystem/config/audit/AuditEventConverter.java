@@ -1,7 +1,6 @@
 package com.bru.jhipster.expertsystem.config.audit;
 
 import com.bru.jhipster.expertsystem.domain.PersistentAuditEvent;
-
 import org.springframework.boot.actuate.audit.AuditEvent;
 import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.stereotype.Component;

@@ -4,7 +4,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -91,7 +91,7 @@ public class ExpertSystem implements Serializable {
             return false;
         }
         ExpertSystem expertSystem = (ExpertSystem) o;
-        if(expertSystem.id == null || id == null) {
+        if (expertSystem.id == null || id == null) {
             return false;
         }
         return Objects.equals(id, expertSystem.id);

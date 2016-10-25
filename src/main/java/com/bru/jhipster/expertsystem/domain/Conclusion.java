@@ -71,7 +71,7 @@ public class Conclusion implements Serializable {
             return false;
         }
         Conclusion conclusion = (Conclusion) o;
-        if(conclusion.id == null || id == null) {
+        if (conclusion.id == null || id == null) {
             return false;
         }
         return Objects.equals(id, conclusion.id);

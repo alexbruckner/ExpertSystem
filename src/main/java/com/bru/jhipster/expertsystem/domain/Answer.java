@@ -4,7 +4,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -90,7 +90,7 @@ public class Answer implements Serializable {
             return false;
         }
         Answer answer = (Answer) o;
-        if(answer.id == null || id == null) {
+        if (answer.id == null || id == null) {
             return false;
         }
         return Objects.equals(id, answer.id);

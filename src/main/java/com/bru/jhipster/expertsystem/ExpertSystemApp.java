@@ -3,11 +3,11 @@ package com.bru.jhipster.expertsystem;
 import com.bru.jhipster.expertsystem.config.Constants;
 import com.bru.jhipster.expertsystem.config.DefaultProfileUtil;
 import com.bru.jhipster.expertsystem.config.JHipsterProperties;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.actuate.autoconfigure.*;
+import org.springframework.boot.actuate.autoconfigure.MetricFilterAutoConfiguration;
+import org.springframework.boot.actuate.autoconfigure.MetricRepositoryAutoConfiguration;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.liquibase.LiquibaseProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -22,8 +22,8 @@ import java.util.Arrays;
 import java.util.Collection;
 
 @ComponentScan
-@EnableAutoConfiguration(exclude = { MetricFilterAutoConfiguration.class, MetricRepositoryAutoConfiguration.class })
-@EnableConfigurationProperties({ JHipsterProperties.class, LiquibaseProperties.class })
+@EnableAutoConfiguration(exclude = {MetricFilterAutoConfiguration.class, MetricRepositoryAutoConfiguration.class})
+@EnableConfigurationProperties({JHipsterProperties.class, LiquibaseProperties.class})
 public class ExpertSystemApp {
 
     private static final Logger log = LoggerFactory.getLogger(ExpertSystemApp.class);
