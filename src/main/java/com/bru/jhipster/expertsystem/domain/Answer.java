@@ -30,7 +30,7 @@ public class Answer implements Serializable {
     @NotNull
     private Question question;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.REMOVE, orphanRemoval = true)
     @JoinColumn(unique = true)
     private Conclusion conclusion;
 

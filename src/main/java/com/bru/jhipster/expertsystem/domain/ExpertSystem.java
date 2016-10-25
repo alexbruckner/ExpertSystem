@@ -31,7 +31,7 @@ public class ExpertSystem implements Serializable {
     @Lob
     private String xml;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.REMOVE, orphanRemoval = true)
     @JoinColumn(unique = true)
     private Question question;
 

@@ -29,7 +29,7 @@ public class Question implements Serializable {
     @Column(name = "text", nullable = false)
     private String text;
 
-    @OneToMany(mappedBy = "question")
+    @OneToMany(mappedBy = "question", cascade = CascadeType.REMOVE, orphanRemoval = true)
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Answer> answers = new HashSet<>();

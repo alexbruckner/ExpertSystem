@@ -24,8 +24,7 @@ public class Conclusion implements Serializable {
     @Column(name = "text")
     private String text;
 
-    @OneToOne
-    @JoinColumn(unique = true)
+    @OneToOne(cascade = CascadeType.REMOVE, orphanRemoval = true)
     private Question question;
 
     public Long getId() {
