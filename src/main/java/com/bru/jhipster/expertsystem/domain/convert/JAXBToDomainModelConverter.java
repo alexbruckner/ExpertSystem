@@ -45,7 +45,7 @@ public class JAXBToDomainModelConverter {
             );
 
         ExpertSystem expertSystem = new ExpertSystem()
-            .title(expertSystemJAXB.getTitle())
+            .title(expertSystemJAXB.getTitle().trim())
             .xml(xml).question(convert(expertSystemJAXB.getQuestion()));
 
         return expertSystemRepository.save(expertSystem);
