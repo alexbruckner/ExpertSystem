@@ -1,6 +1,7 @@
 <div ng-cloak>
     <div class="row">
         <h1>Running: {{vm.expertSystem.title}}</h1>
+        <hr/>
         <div class="col-md-12">
             {{vm.item.text}}
             <div>
@@ -9,6 +10,9 @@
                 </button>
             </div>
         </div>
-
+    </div>
+    <hr/>
+    <div>
+        <button class="button" ng-click="vm.restart()">Restart</button>
     </div>
 </div>

@@ -10,11 +10,16 @@
     function ExpertSystemRunnerController (ExpertSystem, $stateParams, Answer) {
         var vm = this;
         vm.selectedAnswer = selectedAnswer;
+        vm.restart = restart;
 
         ExpertSystem.get({id : $stateParams.id}, onSuccess, onError);
 
         function onSuccess(data) {
             vm.expertSystem = data;
+            restart();
+        }
+
+        function restart() {
             newQuestion(vm.expertSystem.question);
         }
 
