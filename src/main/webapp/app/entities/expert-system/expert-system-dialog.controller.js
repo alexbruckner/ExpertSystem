@@ -11,6 +11,7 @@
         var vm = this;
 
         vm.expertSystem = entity;
+        vm.expertSystem.xml = "?";
         vm.clear = clear;
         vm.save = save;
         vm.questions = Question.query({filter: 'expertsystem-is-null'});
