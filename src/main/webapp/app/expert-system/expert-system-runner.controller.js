@@ -9,22 +9,34 @@
 
     function ExpertSystemRunnerController (ExpertSystem, $stateParams, Answer) {
         var vm = this;
+        vm.selectedAnswer = selectedAnswer;
 
         ExpertSystem.get({id : $stateParams.id}, onSuccess, onError);
 
         function onSuccess(data) {
             vm.expertSystem = data;
-            vm.item = vm.expertSystem.question;
+            newQuestion(vm.expertSystem.question);
+        }
+
+        function onError(error) {
+            alert(error.data.message);
+        }
+
+        function selectedAnswer(answer) {
+            if (answer.conclusion.question) {
+                newQuestion(answer.conclusion.question);
+            } else {
+                alert(answer.conclusion.text); //TODO make nice
+            }
+        }
+
+        function newQuestion(question){
+            vm.item = question;
             Answer.forQuestion({id : vm.item.id}, onAnswerSuccess, onError);
 
             function onAnswerSuccess(data) {
                 vm.answers = data;
             }
-
-        }
-
-        function onError(error) {
-            alert(error.data.message);
         }
 
     }

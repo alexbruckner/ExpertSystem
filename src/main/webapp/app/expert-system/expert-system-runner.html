@@ -4,7 +4,7 @@
         <div class="col-md-12">
             {{vm.item.text}}
             <div>
-                <button class="button" ng-repeat="answer in vm.answers">
+                <button class="button" ng-repeat="answer in vm.answers" ng-click="vm.selectedAnswer(answer)">
                     {{answer.text}}
                 </button>
             </div>
