@@ -32,12 +32,9 @@
         }
 
         function getExpertSystems () {
-            ExpertSystem.query(onSuccess, onError);
+            ExpertSystem.query(onSuccess);
             function onSuccess(data) {
                 vm.expertSystems = data;
-            }
-            function onError(error) {
-                alert(error.data.message);
             }
         }
 
