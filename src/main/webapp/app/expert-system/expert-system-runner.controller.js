@@ -26,7 +26,8 @@
             if (answer.conclusion.question) {
                 newQuestion(answer.conclusion.question);
             } else {
-                alert(answer.conclusion.text); //TODO make nice
+                vm.item = answer.conclusion;
+                vm.answers = null;
             }
         }
 
