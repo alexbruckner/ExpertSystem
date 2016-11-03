@@ -135,4 +135,25 @@ public class AnswerResource {
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("answer", id.toString())).build();
     }
 
+    /**
+     * GET  /answers/:id : get the "id" answer.
+     *
+     * @param id the id of the answer to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body the answer, or with status 404 (Not Found)
+     */
+    @RequestMapping(value = "/answers/forQuestion/{id}",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<List<Answer>> getAnswersForQuestion(@PathVariable Long id) {
+        log.debug("REST request to get Answers for Question : {}", id);
+        //TODO check question exists
+        List<Answer> answer = answerRepository.findAllByQuestion_id(id);
+        return Optional.ofNullable(answer)
+            .map(result -> new ResponseEntity<>(
+                result,
+                HttpStatus.OK))
+            .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
 }

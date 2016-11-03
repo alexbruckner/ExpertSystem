@@ -20,7 +20,8 @@
                     return data;
                 }
             },
-            'update': { method:'PUT' }
+            'update': { method:'PUT' },
+            'forQuestion': { url: 'api/answers/forQuestion/:id', method: 'GET', isArray: true }
         });
     }
 })();

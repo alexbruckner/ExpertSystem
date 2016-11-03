@@ -2,7 +2,13 @@
     <div class="row">
         <h1>Running: {{vm.expertSystem.title}}</h1>
         <div class="col-md-12">
-           TODO
+            {{vm.item.text}}
+            <div>
+                <button class="button" ng-repeat="answer in vm.answers">
+                    {{answer.text}}
+                </button>
+            </div>
         </div>
+
     </div>
 </div>
