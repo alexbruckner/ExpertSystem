@@ -5,14 +5,16 @@
         .module('expertSystemApp')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', 'Principal', 'LoginService', 'ExpertSystem'];
+    HomeController.$inject = ['$scope', 'Principal', 'LoginService', 'ExpertSystem', '$state'];
 
-    function HomeController ($scope, Principal, LoginService, ExpertSystem) {
+    function HomeController ($scope, Principal, LoginService, ExpertSystem, $state) {
         var vm = this;
 
         vm.account = null;
         vm.isAuthenticated = null;
         vm.login = LoginService.open;
+        vm.start = start;
+
         $scope.$on('authenticationSuccess', function() {
             getAccount();
         });
@@ -34,8 +36,13 @@
                 vm.expertSystems = data;
             }
             function onError(error) {
-                AlertService.error(error.data.message);
+                alert(error.data.message);
             }
+        }
+
+        function start(expertSystem) {
+            // TODO send selection
+            $state.go('expert-system-runner',{id : expertSystem.id});
         }
     }
 })();

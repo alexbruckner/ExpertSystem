@@ -16,7 +16,7 @@
                     <div class="container">
                         <table class="table table-hover">
                             <tr ng-repeat="expertSystem in vm.expertSystems track by expertSystem.id">
-                                <td>{{expertSystem.title}}</td>
+                                <td ng-click="vm.start(expertSystem)">{{expertSystem.title}}</td>
                             </tr>
                         </table>
                     </div>
