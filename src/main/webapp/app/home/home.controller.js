@@ -14,6 +14,7 @@
         vm.isAuthenticated = null;
         vm.login = LoginService.open;
         vm.start = start;
+        vm.gotoExpertSystem=gotoExpertSystem;
 
         $scope.$on('authenticationSuccess', function() {
             getAccount();
@@ -41,8 +42,11 @@
         }
 
         function start(expertSystem) {
-            // TODO send selection
             $state.go('expert-system-runner',{id : expertSystem.id});
+        }
+
+        function gotoExpertSystem() {
+            $state.go('expert-system');
         }
     }
 })();

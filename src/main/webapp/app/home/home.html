@@ -14,11 +14,24 @@
                 <div ng-switch-when="true">
                     <p class="lead" data-translate="home.available_expert_systems">Available Expert Systems</p>
                     <div class="container">
-                        <table class="table table-hover">
-                            <tr ng-repeat="expertSystem in vm.expertSystems track by expertSystem.id">
-                                <td ng-click="vm.start(expertSystem)">{{expertSystem.title}}</td>
-                            </tr>
-                        </table>
+
+                        <div ng-switch="vm.expertSystems.length == 0">
+                            <div ng-switch-when="false">
+                                <table class="table table-hover">
+                                    <tr ng-repeat="expertSystem in vm.expertSystems track by expertSystem.id">
+                                        <td ng-click="vm.start(expertSystem)">{{expertSystem.title}}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div ng-switch-when="true">
+                                <div>
+                                    No Expert Systems have been created or uploaded.<br/><br/>
+                                </div>
+                                <button ng-click="vm.gotoExpertSystem()">
+                                    Create a new expert system
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
