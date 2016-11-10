@@ -24,10 +24,12 @@
     </xs:complexType>
 
     <xs:complexType name="conclusion">
-        <xs:sequence>
-            <xs:element name="text" type="xs:string" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="question" type="question" minOccurs="0" maxOccurs="1"/>
-        </xs:sequence>
+        <xs:choice>
+            <xs:element name="text" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="question" type="question" minOccurs="1" maxOccurs="1"/>
+        </xs:choice>
+        <xs:attribute name="refId" type="xs:ID"/>
+        <xs:attribute name="ref" type="xs:IDREF"/>
     </xs:complexType>
 </xs:schema>
 

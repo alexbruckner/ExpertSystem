@@ -32,5 +32,9 @@ public class ExpertSystemUnitTest {
         assertThat(q1Answer1Conclusion.getText().trim(), is("Blue ball!"));
 
         assertThat(q1Answers.get(1).getConclusion().getQuestion().getText().trim(), is("Really?"));
+
+        assertThat(q1Answers.get(1).getConclusion().getQuestion().getAnswer().get(2).getText().trim(), is("Who cares."));
+        assertThat(q1Answers.get(1).getConclusion().getQuestion().getAnswer().get(2).getConclusion().getRef().getText().trim(), is("Idiot."));
+
     }
 }

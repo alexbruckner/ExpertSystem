@@ -24,15 +24,15 @@
             <column name="text" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="question_id" type="bigint">
                 <constraints nullable="false" />
             </column>
             <column name="conclusion_id" type="bigint">
-                <constraints unique="true" nullable="true" />
+                <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+
     </changeSet>
 </databaseChangeLog>

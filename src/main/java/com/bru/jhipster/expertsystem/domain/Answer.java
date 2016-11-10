@@ -31,7 +31,7 @@ public class Answer implements Serializable {
     private Question question;
 
     @OneToOne(cascade = CascadeType.REMOVE, orphanRemoval = true)
-    @JoinColumn(unique = true)
+    @JoinColumn()
     private Conclusion conclusion;
 
     public Long getId() {

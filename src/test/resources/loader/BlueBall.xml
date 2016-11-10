@@ -41,11 +41,17 @@
                         <text>
                             No.
                         </text>
-                        <conclusion>
+                        <conclusion refId="red">
                             <text>
                                 Idiot.
                             </text>
                         </conclusion>
+                    </answer>
+                    <answer>
+                        <text>
+                            Who cares.
+                        </text>
+                        <conclusion ref="red"/>
                     </answer>
                 </question>
             </conclusion>
