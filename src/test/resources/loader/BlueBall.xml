@@ -12,7 +12,7 @@
             <text>
                 Blue.
             </text>
-            <conclusion>
+            <conclusion refId="blue">
                 <text>
                     Blue ball!
                 </text>
@@ -52,6 +52,12 @@
                             Who cares.
                         </text>
                         <conclusion ref="red"/>
+                    </answer>
+                    <answer>
+                        <text>
+                            Crap. It was blue all along!
+                        </text>
+                        <conclusion ref="blue"/>
                     </answer>
                 </question>
             </conclusion>
