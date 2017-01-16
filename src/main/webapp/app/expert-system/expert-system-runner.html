@@ -3,9 +3,13 @@
         <h1>Running: {{vm.expertSystem.title}}</h1>
         <hr/>
         <div class="col-md-12">
-            {{vm.item.text}}
+            <div class="qa">
+                <span ng-show="vm.concluded"><img class="qaImages" src="/content/images/A.jpg"/></span>
+                <span ng-hide="vm.concluded"><img class="qaImages" src="/content/images/Q.jpg"/></span>
+                <span>{{vm.item.text}}</span>
+            </div>
             <div>
-                <button class="button" ng-repeat="answer in vm.answers" ng-click="vm.selectedAnswer(answer)">
+                <button class="btn btn-block aButtons" ng-repeat="answer in vm.answers" ng-click="vm.selectedAnswer(answer)">
                     {{answer.text}}
                 </button>
             </div>
@@ -14,5 +18,6 @@
     <hr/>
     <div>
         <button class="button" ng-click="vm.restart()">Restart</button>
+        <button class="button" ng-click="vm.back()">Back</button>
     </div>
 </div>
